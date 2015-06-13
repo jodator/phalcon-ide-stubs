@@ -5,16 +5,17 @@ namespace Phalcon\Mvc\View {
 	/**
 	 * Phalcon\Mvc\View\Simple
 	 *
-	 * This component allows to render views without hicherquical levels
+	 * This component allows to render views without hierarchical levels
 	 *
 	 *<code>
-	 * $view = new Phalcon\Mvc\View\Simple();
+	 * $view = new \Phalcon\Mvc\View\Simple();
 	 * echo $view->render('templates/my-view', array('content' => $html));
+	 * //or with filename with extension
+	 * echo $view->render('templates/my-view.volt', array('content' => $html));
 	 *</code>
-	 *
 	 */
 	
-	class Simple extends \Phalcon\DI\Injectable implements \Phalcon\Events\EventsAwareInterface, \Phalcon\DI\InjectionAwareInterface {
+	class Simple extends \Phalcon\Di\Injectable implements \Phalcon\Events\EventsAwareInterface, \Phalcon\Di\InjectionAwareInterface, \Phalcon\Mvc\ViewBaseInterface {
 
 		protected $_options;
 
@@ -36,26 +37,25 @@ namespace Phalcon\Mvc\View {
 
 		protected $_cacheOptions;
 
+		public function getRegisteredEngines(){ }
+
+
 		/**
-		 * \Phalcon\Mvc\View constructor
+		 * \Phalcon\Mvc\View\Simple constructor
 		 *
-		 * @param array $options
+		 * @param array options
 		 */
 		public function __construct($options=null){ }
 
 
 		/**
 		 * Sets views directory. Depending of your platform, always add a trailing slash or backslash
-		 *
-		 * @param string $viewsDir
 		 */
 		public function setViewsDir($viewsDir){ }
 
 
 		/**
 		 * Gets views directory
-		 *
-		 * @return string
 		 */
 		public function getViewsDir(){ }
 
@@ -70,18 +70,8 @@ namespace Phalcon\Mvc\View {
 		 *  ".mhtml" => "MyCustomEngine"
 		 *));
 		 *</code>
-		 *
-		 * @param array $engines
 		 */
 		public function registerEngines($engines){ }
-
-
-		/**
-		 * Returns the registered templating engines
-		 *
-		 * @brief array \Phalcon\Mvc\View\Simple::getRegisteredEngines()
-		 */
-		public function getRegisteredEngines(){ }
 
 
 		/**
@@ -95,17 +85,17 @@ namespace Phalcon\Mvc\View {
 		/**
 		 * Tries to render the view with every engine registered in the component
 		 *
-		 * @param string $path
-		 * @param array $params
+		 * @param string path
+		 * @param array  params
 		 */
-		protected function _internalRender(){ }
+		final protected function _internalRender($path, $params){ }
 
 
 		/**
 		 * Renders a view
 		 *
-		 * @param string $path
-		 * @param array $params
+		 * @param  string path
+		 * @param  array  params
 		 * @return string
 		 */
 		public function render($path, $params=null){ }
@@ -124,8 +114,8 @@ namespace Phalcon\Mvc\View {
 		 * 	$this->partial('shared/footer', array('content' => $html));
 		 * </code>
 		 *
-		 * @param string $partialPath
-		 * @param array $params
+		 * @param string partialPath
+		 * @param array  params
 		 */
 		public function partial($partialPath, $params=null){ }
 
@@ -133,7 +123,7 @@ namespace Phalcon\Mvc\View {
 		/**
 		 * Sets the cache options
 		 *
-		 * @param array $options
+		 * @param  array options
 		 * @return \Phalcon\Mvc\View\Simple
 		 */
 		public function setCacheOptions($options){ }
@@ -149,16 +139,12 @@ namespace Phalcon\Mvc\View {
 
 		/**
 		 * Create a \Phalcon\Cache based on the internal cache options
-		 *
-		 * @return \Phalcon\Cache\BackendInterface
 		 */
 		protected function _createCache(){ }
 
 
 		/**
 		 * Returns the cache instance used to cache
-		 *
-		 * @return \Phalcon\Cache\BackendInterface
 		 */
 		public function getCache(){ }
 
@@ -169,9 +155,6 @@ namespace Phalcon\Mvc\View {
 		 *<code>
 		 *  $this->view->cache(array('key' => 'my-key', 'lifetime' => 86400));
 		 *</code>
-		 *
-		 * @param boolean|array $options
-		 * @return \Phalcon\Mvc\View\Simple
 		 */
 		public function cache($options=null){ }
 
@@ -182,10 +165,6 @@ namespace Phalcon\Mvc\View {
 		 *<code>
 		 *	$this->view->setParamToView('products', $products);
 		 *</code>
-		 *
-		 * @param string $key
-		 * @param mixed $value
-		 * @return \Phalcon\Mvc\View\Simple
 		 */
 		public function setParamToView($key, $value){ }
 
@@ -196,10 +175,6 @@ namespace Phalcon\Mvc\View {
 		 *<code>
 		 *	$this->view->setVars(array('products' => $products));
 		 *</code>
-		 *
-		 * @param array $params
-		 * @param boolean $merge
-		 * @return \Phalcon\Mvc\View\Simple
 		 */
 		public function setVars($params, $merge=null){ }
 
@@ -210,10 +185,6 @@ namespace Phalcon\Mvc\View {
 		 *<code>
 		 *	$this->view->setVar('products', $products);
 		 *</code>
-		 *
-		 * @param string $key
-		 * @param mixed $value
-		 * @return \Phalcon\Mvc\View\Simple
 		 */
 		public function setVar($key, $value){ }
 
@@ -221,9 +192,8 @@ namespace Phalcon\Mvc\View {
 		/**
 		 * Returns a parameter previously set in the view
 		 *
-		 * @param string $key
+		 * @param string key
 		 * @return mixed
-		 * @see __get()
 		 */
 		public function getVar($key){ }
 
@@ -242,17 +212,12 @@ namespace Phalcon\Mvc\View {
 		 *<code>
 		 *	$this->view->setContent("<h1>hello</h1>");
 		 *</code>
-		 *
-		 * @param string $content
-		 * @return \Phalcon\Mvc\View\Simple
 		 */
 		public function setContent($content){ }
 
 
 		/**
-		 * Returns cached ouput from another view stage
-		 *
-		 * @return string
+		 * Returns cached output from another view stage
 		 */
 		public function getContent(){ }
 
@@ -271,9 +236,6 @@ namespace Phalcon\Mvc\View {
 		 *<code>
 		 *	$this->view->products = $products;
 		 *</code>
-		 *
-		 * @param string $key
-		 * @param mixed $value
 		 */
 		public function __set($key, $value){ }
 
@@ -285,7 +247,7 @@ namespace Phalcon\Mvc\View {
 		 *	echo $this->view->products;
 		 *</code>
 		 *
-		 * @param string $key
+		 * @param string key
 		 * @return mixed
 		 */
 		public function __get($key){ }

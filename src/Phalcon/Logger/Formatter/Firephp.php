@@ -16,22 +16,31 @@ namespace Phalcon\Logger\Formatter {
 
 		/**
 		 * Returns the string meaning of a logger constant
-		 *
-		 * @param  integer $type
-		 * @return string
 		 */
 		public function getTypeString($type){ }
 
 
+		/**
+		 * Returns the string meaning of a logger constant
+		 */
+		public function setShowBacktrace($isShow=null){ }
+
+
+		/**
+		 * Returns the string meaning of a logger constant
+		 */
 		public function getShowBacktrace(){ }
 
 
-		public function setShowBacktrace($show=null){ }
+		/**
+		 * Returns the string meaning of a logger constant
+		 */
+		public function enableLabels($isEnable=null){ }
 
 
-		public function enableLabels($enable=null){ }
-
-
+		/**
+		 * Returns the labels enabled
+		 */
 		public function labelsEnabled(){ }
 
 
@@ -42,9 +51,10 @@ namespace Phalcon\Logger\Formatter {
 		 * @param int $type
 		 * @param int $timestamp
 		 * @param array $context
+		 *
 		 * @return string
 		 */
-		public function format($message, $type, $timestamp, $context){ }
+		public function format($message, $type, $timestamp, $context=null){ }
 
 	}
 }

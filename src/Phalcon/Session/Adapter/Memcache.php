@@ -8,11 +8,12 @@ namespace Phalcon\Session\Adapter {
 	 * This adapter store sessions in memcache
 	 *
 	 *<code>
-	 * $session = new Phalcon\Session\Adapter\Memcache(array(
+	 * $session = new \Phalcon\Session\Adapter\Memcache(array(
+	 *    'uniqueId' => 'my-private-app'
 	 *    'host' => '127.0.0.1',
 	 *    'port' => 11211,
-	 *    'lifetime' => 3600,
 	 *    'persistent' => TRUE,
+	 *    'lifetime' => 3600,
 	 *    'prefix' => 'my_'
 	 * ));
 	 *
@@ -24,63 +25,65 @@ namespace Phalcon\Session\Adapter {
 	 *</code>
 	 */
 	
-	class Memcache extends \Phalcon\Session\Adapter implements \ArrayAccess, \Traversable, \IteratorAggregate, \Countable, \Phalcon\Session\AdapterInterface {
+	class Memcache extends \Phalcon\Session\Adapter implements \Phalcon\Session\AdapterInterface {
 
-		protected $_lifetime;
+		const SESSION_ACTIVE = 2;
+
+		const SESSION_NONE = 1;
+
+		const SESSION_DISABLED = 0;
 
 		protected $_memcache;
 
-		/**
-		 * Constructor for \Phalcon\Session\Adapter\Memcache
-		 *
-		 * @param array $options
-		 */
-		public function __construct($options){ }
+		protected $_lifetime;
+
+		public function getMemcache(){ }
+
+
+		public function getLifetime(){ }
 
 
 		/**
-		 *
-		 * @return boolean
+		 * \Phalcon\Session\Adapter\Memcache constructor
 		 */
+		public function __construct($options=null){ }
+
+
 		public function open(){ }
 
 
-		/**
-		 *
-		 * @return boolean
-		 */
 		public function close(){ }
 
 
 		/**
+		 * {@inheritdoc}
 		 *
-		 * @param string $sessionId
+		 * @param string sessionId
 		 * @return mixed
 		 */
 		public function read($sessionId){ }
 
 
 		/**
+		 * {@inheritdoc}
 		 *
-		 * @param string $sessionId
-		 * @param string $data
-		 * @return boolean
+		 * @param string sessionId
+		 * @param string data
 		 */
 		public function write($sessionId, $data){ }
 
 
 		/**
+		 * {@inheritdoc}
 		 *
-		 * @param string $session_id optional, session id
-		 *
+		 * @param  string  sessionId
 		 * @return boolean
 		 */
 		public function destroy($sessionId=null){ }
 
 
 		/**
-		 *
-		 * @return boolean
+		 * {@inheritdoc}
 		 */
 		public function gc(){ }
 

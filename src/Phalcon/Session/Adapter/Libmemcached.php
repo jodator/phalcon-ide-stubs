@@ -28,62 +28,65 @@ namespace Phalcon\Session\Adapter {
 	 *</code>
 	 */
 	
-	class Libmemcached extends \Phalcon\Session\Adapter implements \ArrayAccess, \Traversable, \IteratorAggregate, \Countable, \Phalcon\Session\AdapterInterface {
+	class Libmemcached extends \Phalcon\Session\Adapter implements \Phalcon\Session\AdapterInterface {
 
-		protected $_lifetime;
+		const SESSION_ACTIVE = 2;
+
+		const SESSION_NONE = 1;
+
+		const SESSION_DISABLED = 0;
 
 		protected $_libmemcached;
 
+		protected $_lifetime;
+
+		public function getLibmemcached(){ }
+
+
+		public function getLifetime(){ }
+
+
 		/**
-		 * Constructor for \Phalcon\Session\Adapter\Libmemcached
-		 *
-		 * @param array $options
+		 * \Phalcon\Session\Adapter\Libmemcached constructor
 		 */
 		public function __construct($options){ }
 
 
-		/**
-		 *
-		 * @return boolean
-		 */
 		public function open(){ }
 
 
-		/**
-		 *
-		 * @return boolean
-		 */
 		public function close(){ }
 
 
 		/**
+		 * {@inheritdoc}
 		 *
-		 * @param string $sessionId
+		 * @param string sessionId
 		 * @return mixed
 		 */
 		public function read($sessionId){ }
 
 
 		/**
+		 * {@inheritdoc}
 		 *
-		 * @param string $sessionId
-		 * @param string $data
+		 * @param string sessionId
+		 * @param string data
 		 */
 		public function write($sessionId, $data){ }
 
 
 		/**
+		 * {@inheritdoc}
 		 *
-		 * @param string $session_id optional, session id
-		 *
+		 * @param  string  sessionId
 		 * @return boolean
 		 */
 		public function destroy($sessionId=null){ }
 
 
 		/**
-		 *
-		 * @return boolean
+		 * {@inheritdoc}
 		 */
 		public function gc(){ }
 

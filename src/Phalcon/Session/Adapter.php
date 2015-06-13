@@ -8,7 +8,13 @@ namespace Phalcon\Session {
 	 * Base class for Phalcon\Session adapters
 	 */
 	
-	abstract class Adapter implements \Phalcon\Session\AdapterInterface, \Countable, \IteratorAggregate, \Traversable, \ArrayAccess {
+	abstract class Adapter {
+
+		const SESSION_ACTIVE = 2;
+
+		const SESSION_NONE = 1;
+
+		const SESSION_DISABLED = 0;
 
 		protected $_uniqueId;
 
@@ -19,18 +25,13 @@ namespace Phalcon\Session {
 		/**
 		 * \Phalcon\Session\Adapter constructor
 		 *
-		 * @param array $options
+		 * @param array options
 		 */
 		public function __construct($options=null){ }
 
 
-		public function __destruct(){ }
-
-
 		/**
 		 * Starts the session (if headers are already sent the session will not be started)
-		 *
-		 * @return boolean
 		 */
 		public function start(){ }
 
@@ -39,20 +40,16 @@ namespace Phalcon\Session {
 		 * Sets session's options
 		 *
 		 *<code>
-		 *	$session->setOptions(array(
+		 *	session->setOptions(array(
 		 *		'uniqueId' => 'my-private-app'
 		 *	));
 		 *</code>
-		 *
-		 * @param array $options
 		 */
 		public function setOptions($options){ }
 
 
 		/**
 		 * Get internal options
-		 *
-		 * @return array
 		 */
 		public function getOptions(){ }
 
@@ -60,23 +57,23 @@ namespace Phalcon\Session {
 		/**
 		 * Gets a session variable from an application context
 		 *
-		 * @param string $index
-		 * @param mixed $defaultValue
-		 * @param bool $remove
+		 * @param string index
+		 * @param mixed defaultValue
+		 * @param boolean remove
 		 * @return mixed
 		 */
-		public function get($index, $defaultValue=null){ }
+		public function get($index, $defaultValue=null, $remove=null){ }
 
 
 		/**
 		 * Sets a session variable in an application context
 		 *
 		 *<code>
-		 *	$session->set('auth', 'yes');
+		 *	session->set('auth', 'yes');
 		 *</code>
 		 *
-		 * @param string $index
-		 * @param string $value
+		 * @param string index
+		 * @param string value
 		 */
 		public function set($index, $value){ }
 
@@ -87,9 +84,6 @@ namespace Phalcon\Session {
 		 *<code>
 		 *	var_dump($session->has('auth'));
 		 *</code>
-		 *
-		 * @param string $index
-		 * @return boolean
 		 */
 		public function has($index){ }
 
@@ -100,8 +94,6 @@ namespace Phalcon\Session {
 		 *<code>
 		 *	$session->remove('auth');
 		 *</code>
-		 *
-		 * @param string $index
 		 */
 		public function remove($index){ }
 
@@ -112,10 +104,18 @@ namespace Phalcon\Session {
 		 *<code>
 		 *	echo $session->getId();
 		 *</code>
-		 *
-		 * @return string
 		 */
 		public function getId(){ }
+
+
+		/**
+		 * Set the current session id
+		 *
+		 *<code>
+		 *	$session->setId($id);
+		 *</code>
+		 */
+		public function setId($id){ }
 
 
 		/**
@@ -124,8 +124,6 @@ namespace Phalcon\Session {
 		 *<code>
 		 *	var_dump($session->isStarted());
 		 *</code>
-		 *
-		 * @return boolean
 		 */
 		public function isStarted(){ }
 
@@ -136,50 +134,53 @@ namespace Phalcon\Session {
 		 *<code>
 		 *	var_dump($session->destroy());
 		 *</code>
-		 *
-		 * @return boolean
 		 */
-		public function destroy($session_id=null){ }
-
-
-		public function __get($property){ }
-
-
-		public function __set($property, $value){ }
-
-
-		public function __isset($property){ }
-
-
-		public function __unset($property){ }
-
-
-		public function offsetGet($property){ }
-
-
-		public function offsetSet($property, $value){ }
-
-
-		public function offsetExists($property){ }
-
-
-		public function offsetUnset($property){ }
-
-
-		public function count(){ }
-
-
-		public function getIterator(){ }
+		public function destroy(){ }
 
 
 		/**
-		 * Set the current session id
+		 * Returns the status of the current session. For PHP 5.3 this function will always return SESSION_NONE
 		 *
 		 *<code>
-		 *	$session->setId($id);
+		 *	var_dump($session->status());
+		 *
+		 *  // PHP 5.4 and above will give meaningful messages, 5.3 gets SESSION_NONE always
+		 *  if ($session->status() !== $session::SESSION_ACTIVE) {
+		 *      $session->start();
+		 *  }
 		 *</code>
 		 */
-		public function setId($sid){ }
+		public function status(){ }
+
+
+		/**
+		 * Alias: Gets a session variable from an application context
+		 *
+		 * @param string index
+		 * @return mixed
+		 */
+		public function __get($index){ }
+
+
+		/**
+		 * Alias: Sets a session variable in an application context
+		 *
+		 * @param string index
+		 * @param string value
+		 */
+		public function __set($index, $value){ }
+
+
+		/**
+		 * Alias: Check whether a session variable is set in an application context
+		 */
+		public function __isset($index){ }
+
+
+		/**
+		 * Alias: Removes a session variable from an application context
+		 */
+		public function __unset($index){ }
 
 	}
 }

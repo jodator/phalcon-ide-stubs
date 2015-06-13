@@ -12,20 +12,12 @@ namespace Phalcon\Annotations {
 
 		/**
 		 * Reads annotations from the class dockblocks, its methods and/or properties
-		 *
-		 * @param string $className
-		 * @return array
 		 */
 		public function parse($className){ }
 
 
 		/**
 		 * Parses a raw doc block returning the annotations found
-		 *
-		 * @param string $docBlock
-		 * @param string $file
-		 * @param int $line
-		 * @return array
 		 */
 		public static function parseDocBlock($docBlock, $file=null, $line=null){ }
 

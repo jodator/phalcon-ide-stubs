@@ -5,23 +5,23 @@ namespace Phalcon\Config\Adapter {
 	/**
 	 * Phalcon\Config\Adapter\Yaml
 	 *
-	 * Reads JSON files and converts them to Phalcon\Config objects.
+	 * Reads YAML files and converts them to Phalcon\Config objects.
 	 *
 	 * Given the following configuration file:
 	 *
 	 *<code>
-	 *phalcon
-	 *  baseuri: /phalcon/
-	 *models:
-	 *  metadata: memory
+	 * phalcon
+	 *   baseuri: /phalcon/
+	 * models:
+	 *   metadata: memory
 	 *</code>
 	 *
 	 * You can read it as follows:
 	 *
 	 *<code>
-	 *	$config = new Phalcon\Config\Adapter\Yaml("path/config.yaml");
-	 *	echo $config->phalcon->baseuri;
-	 *	echo $config->models->metadata;
+	 * $config = new Phalcon\Config\Adapter\Yaml("path/config.yaml");
+	 * echo $config->phalcon->baseuri;
+	 * echo $config->models->metadata;
 	 *</code>
 	 *
 	 */
@@ -31,9 +31,9 @@ namespace Phalcon\Config\Adapter {
 		/**
 		 * \Phalcon\Config\Adapter\Yaml constructor
 		 *
-		 * @param string $filePath
+		 * @throws \Phalcon\Config\Exception
 		 */
-		public function __construct($filePath){ }
+		public function __construct($filePath, $callbacks=null){ }
 
 	}
 }

@@ -12,53 +12,46 @@ namespace Phalcon\Db {
 	
 	class Index implements \Phalcon\Db\IndexInterface {
 
-		protected $_indexName;
+		protected $_name;
 
 		protected $_columns;
 
 		protected $_type;
 
 		/**
-		 * \Phalcon\Db\Index constructor
+		 * Index name
 		 *
-		 * @param string $indexName
-		 * @param array $columns
-		 * @param string|null $type
-		 */
-		public function __construct($indexName, $columns, $type=null){ }
-
-
-		/**
-		 * Gets the index name
-		 *
-		 * @return string
+		 * @var string
 		 */
 		public function getName(){ }
 
 
 		/**
-		 * Gets the columns that comprends the index
+		 * Index columns
 		 *
-		 * @return array
+		 * @var array
 		 */
 		public function getColumns(){ }
 
 
 		/**
-		 * Gets the index type
+		 * Index type
 		 *
-		 * @return string
+		 * @var string
 		 */
 		public function getType(){ }
 
 
 		/**
-		 * Restore a \Phalcon\Db\Index object from export
-		 *
-		 * @param array $data
-		 * @return \Phalcon\Db\IndexInterface
+		 * \Phalcon\Db\Index constructor
 		 */
-		public static function __set_state($properties=null){ }
+		public function __construct($name, $columns, $type=null){ }
+
+
+		/**
+		 * Restore a \Phalcon\Db\Index object from export
+		 */
+		public static function __set_state($data){ }
 
 	}
 }
