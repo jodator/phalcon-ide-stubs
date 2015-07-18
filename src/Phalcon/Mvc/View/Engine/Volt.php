@@ -5,7 +5,7 @@ namespace Phalcon\Mvc\View\Engine {
 	/**
 	 * Phalcon\Mvc\View\Engine\Volt
 	 *
-	 * Designer friendly and fast template engine for PHP written in C
+	 * Designer friendly and fast template engine for PHP written in Zephir/C
 	 */
 	
 	class Volt extends \Phalcon\Mvc\View\Engine implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Events\EventsAwareInterface, \Phalcon\Mvc\View\EngineInterface {
@@ -14,6 +14,8 @@ namespace Phalcon\Mvc\View\Engine {
 
 		protected $_compiler;
 
+		protected $_macros;
+
 		/**
 		 * Set Volt's options
 		 */
@@ -21,7 +23,7 @@ namespace Phalcon\Mvc\View\Engine {
 
 
 		/**
-		 * Return Volt's options	 
+		 * Return Volt's options
 		 */
 		public function getOptions(){ }
 
@@ -66,6 +68,12 @@ namespace Phalcon\Mvc\View\Engine {
 		 * Sorts an array
 		 */
 		public function sort($value){ }
+
+
+		/**
+		 * Checks if a macro is defined and calls it
+		 */
+		public function callMacro($name, $arguments){ }
 
 	}
 }

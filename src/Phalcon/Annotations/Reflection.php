@@ -8,14 +8,17 @@ namespace Phalcon\Annotations {
 	 * Allows to manipulate the annotations reflection in an OO manner
 	 *
 	 *<code>
-	 * //Parse the annotations in a class
-	 * $reader = new \Phalcon\Annotations\Reader();
+	 * use Phalcon\Annotations\Reader;
+	 * use Phalcon\Annotations\Reflection;
+	 *
+	 * // Parse the annotations in a class
+	 * $reader = new Reader();
 	 * $parsing = reader->parse('MyComponent');
 	 *
-	 * //Create the reflection
-	 * $reflection = new \Phalcon\Annotations\Reflection($parsing);
+	 * // Create the reflection
+	 * $reflection = new Reflection($parsing);
 	 *
-	 * //Get the annotations in the class docblock
+	 * // Get the annotations in the class docblock
 	 * $classAnnotations = reflection->getClassAnnotations();
 	 *</code>
 	 */
@@ -46,16 +49,12 @@ namespace Phalcon\Annotations {
 
 		/**
 		 * Returns the annotations found in the methods' docblocks
-		 *
-		 * @return \Phalcon\Annotations\Collection[]
 		 */
 		public function getMethodsAnnotations(){ }
 
 
 		/**
-		 * Returns the annotations found in the properties' docblocks
-		 *
-		 * @return \Phalcon\Annotations\Collection[]
+		 * Returns the annotations found in the properties' docblocks	 
 		 */
 		public function getPropertiesAnnotations(){ }
 

@@ -1,6 +1,6 @@
 {
     "name": "jodator/phalcon-ide-stubs",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "description": "Latest IDE stubs of PhalconPHP to be used with Composer",
     "minimum-stability": "dev",
     "license": "MIT",

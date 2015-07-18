@@ -162,6 +162,12 @@ namespace Phalcon\Mvc {
 
 
 		/**
+		 * Gets base path
+		 */
+		public function getBasePath(){ }
+
+
+		/**
 		 * Sets the render level for the view
 		 *
 		 * <code>

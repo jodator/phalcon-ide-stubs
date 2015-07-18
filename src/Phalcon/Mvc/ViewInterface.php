@@ -19,6 +19,9 @@ namespace Phalcon\Mvc {
 		public function setBasePath($basePath);
 
 
+		public function getBasePath();
+
+
 		public function setRenderLevel($level);
 
 

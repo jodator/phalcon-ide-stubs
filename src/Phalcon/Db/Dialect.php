@@ -76,19 +76,19 @@ namespace Phalcon\Db {
 		 *    echo $dialect->getColumnList(array('column1', 'column'));
 		 * </code>
 		 */
-		final public function getColumnList($columnList){ }
+		final public function getColumnList($columnList, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve Column expressions
 		 */
-		final public function getSqlColumn($column){ }
+		final public function getSqlColumn($column, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Transforms an intermediate representation for a expression into a database system valid expression
 		 */
-		public function getSqlExpression($expression, $escapeChar=null){ }
+		public function getSqlExpression($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
@@ -136,13 +136,13 @@ namespace Phalcon\Db {
 		/**
 		 * Resolve Column expressions
 		 */
-		final protected function getSqlExpressionScalar($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionScalar($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve object expressions
 		 */
-		final protected function getSqlExpressionObject($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionObject($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
@@ -154,25 +154,25 @@ namespace Phalcon\Db {
 		/**
 		 * Resolve binary operations expressions
 		 */
-		final protected function getSqlExpressionBinaryOperations($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionBinaryOperations($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve unary operations expressions
 		 */
-		final protected function getSqlExpressionUnaryOperations($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionUnaryOperations($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve function calls
 		 */
-		final protected function getSqlExpressionFunctionCall($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionFunctionCall($expression, $escapeChar, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve Lists
 		 */
-		final protected function getSqlExpressionList($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionList($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
@@ -184,19 +184,19 @@ namespace Phalcon\Db {
 		/**
 		 * Resolve CAST of values
 		 */
-		final protected function getSqlExpressionCastValue($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionCastValue($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve CONVERT of values encodings
 		 */
-		final protected function getSqlExpressionConvertValue($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionConvertValue($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve CASE expressions
 		 */
-		final protected function getSqlExpressionCase($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionCase($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
@@ -208,43 +208,43 @@ namespace Phalcon\Db {
 		/**
 		 * Resolve a JOINs clause
 		 */
-		final protected function getSqlExpressionJoins($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionJoins($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve a WHERE clause
 		 */
-		final protected function getSqlExpressionWhere($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionWhere($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve a GROUP BY clause
 		 */
-		final protected function getSqlExpressionGroupBy($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionGroupBy($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve a HAVING clause
 		 */
-		final protected function getSqlExpressionHaving($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionHaving($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve a ORDER BY clause
 		 */
-		final protected function getSqlExpressionOrderBy($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionOrderBy($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Resolve a LIMIT clause
 		 */
-		final protected function getSqlExpressionLimit($expression, $escapeChar=null){ }
+		final protected function getSqlExpressionLimit($expression, $escapeChar=null, $bindCounts=null){ }
 
 
 		/**
 		 * Prepares column for this RDBMS
 		 */
-		protected function prepareColumnAlias($qualified, $alias=null){ }
+		protected function prepareColumnAlias($qualified, $alias=null, $escapeChar=null){ }
 
 
 		/**
