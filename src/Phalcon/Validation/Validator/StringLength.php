@@ -18,8 +18,7 @@ namespace Phalcon\Validation\Validator {
 	 *      'messageMaximum' => 'We don\'t like really long names',
 	 *      'messageMinimum' => 'We want more than just their initials'
 	 *)));
-	 *</code>
-	 *
+	 *</code> 
 	 */
 	
 	class StringLength extends \Phalcon\Validation\Validator implements \Phalcon\Validation\ValidatorInterface {

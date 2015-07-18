@@ -22,7 +22,6 @@ namespace Phalcon\Mvc\Model\Validator {
 	 *				return false;
 	 *      	}
 	 *  	}
-	 *
 	 *	}
 	 *</code>
 	 */
@@ -32,7 +31,7 @@ namespace Phalcon\Mvc\Model\Validator {
 		/**
 		 * Executes the validator
 		 */
-		public function validate(\Phalcon\Mvc\ModelInterface $record){ }
+		public function validate(\Phalcon\Mvc\EntityInterface $record){ }
 
 	}
 }

@@ -5,10 +5,10 @@ namespace Phalcon\Http {
 	/**
 	 * Phalcon\Http\Request
 	 *
-	 * <p>Encapsulates request information for easy and secure access from application controllers.</p>
+	 * Encapsulates request information for easy and secure access from application controllers.
 	 *
-	 * <p>The request object is a simple value object that is passed between the dispatcher and controller classes.
-	 * It packages the HTTP request environment.</p>
+	 * The request object is a simple value object that is passed between the dispatcher and controller classes.
+	 * It packages the HTTP request environment.
 	 *
 	 *<code>
 	 *	$request = new \Phalcon\Http\Request();
@@ -233,9 +233,16 @@ namespace Phalcon\Http {
 
 
 		/**
-		 * Check if HTTP method match any of the passed methods
+		 * Checks if a method is a valid HTTP method
 		 */
-		public function isMethod($methods){ }
+		public function isValidHttpMethod($method){ }
+
+
+		/**
+		 * Check if HTTP method match any of the passed methods
+		 * When strict is true it checks if validated methods are real HTTP methods
+		 */
+		public function isMethod($methods, $strict=null){ }
 
 
 		/**

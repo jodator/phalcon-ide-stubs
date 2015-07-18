@@ -61,13 +61,11 @@ namespace Phalcon\Db\Result {
 		 *	$result = $connection->query("SELECT * FROM robots ORDER BY name");
 		 *	$result->setFetchMode(Phalcon\Db::FETCH_OBJ);
 		 *	while ($robot = $result->fetch()) {
-		 *		echo robot->name;
+		 *		echo $robot->name;
 		 *	}
 		 *</code>
-		 *
-		 * @return mixed
 		 */
-		public function fetch(){ }
+		public function fetch($fetchStyle=null, $cursorOrientation=null, $cursorOffset=null){ }
 
 
 		/**
@@ -81,8 +79,6 @@ namespace Phalcon\Db\Result {
 		 *		print_r($robot);
 		 *	}
 		 *</code>
-		 *
-		 * @return mixed
 		 */
 		public function fetchArray(){ }
 
@@ -95,10 +91,8 @@ namespace Phalcon\Db\Result {
 		 *	$result = $connection->query("SELECT * FROM robots ORDER BY name");
 		 *	$robots = $result->fetchAll();
 		 *</code>
-		 *
-		 * @return array
 		 */
-		public function fetchAll(){ }
+		public function fetchAll($fetchStyle=null, $fetchArgument=null, $ctorArgs=null){ }
 
 
 		/**
@@ -141,7 +135,7 @@ namespace Phalcon\Db\Result {
 		 *	$result->setFetchMode(Phalcon\Db::FETCH_OBJ);
 		 *</code>
 		 */
-		public function setFetchMode($fetchMode){ }
+		public function setFetchMode($fetchMode, $colNoOrClassNameOrObject=null, $ctorargs=null){ }
 
 
 		/**

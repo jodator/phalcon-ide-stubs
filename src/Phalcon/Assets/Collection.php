@@ -2,6 +2,12 @@
 
 namespace Phalcon\Assets {
 
+	/**
+	 * Phalcon\Assets\Collection
+	 *
+	 * Represents a collection of resources
+	 */
+	
 	class Collection implements \Countable, \Iterator, \Traversable {
 
 		protected $_prefix;
@@ -102,11 +108,6 @@ namespace Phalcon\Assets {
 
 		/**
 		 * Adds a inline javascript to the collection
-		 *
-		 * @param string content
-		 * @param boolean filter
-		 * @param array attributes
-		 * @return \Phalcon\Assets\Collection
 		 */
 		public function addInlineJs($content, $filter=null, $attributes=null){ }
 
@@ -213,9 +214,6 @@ namespace Phalcon\Assets {
 		 * Adds a filter to the collection
 		 */
 		public function addFilter(\Phalcon\Assets\FilterInterface $filter){ }
-
-
-		public function __construct(){ }
 
 	}
 }

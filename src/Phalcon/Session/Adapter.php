@@ -40,7 +40,7 @@ namespace Phalcon\Session {
 		 * Sets session's options
 		 *
 		 *<code>
-		 *	session->setOptions(array(
+		 *	$session->setOptions(array(
 		 *		'uniqueId' => 'my-private-app'
 		 *	));
 		 *</code>
@@ -52,6 +52,18 @@ namespace Phalcon\Session {
 		 * Get internal options
 		 */
 		public function getOptions(){ }
+
+
+		/**
+		 * Set session name
+		 */
+		public function setName($name){ }
+
+
+		/**
+		 * Get session name
+		 */
+		public function getName(){ }
 
 
 		/**
@@ -69,7 +81,7 @@ namespace Phalcon\Session {
 		 * Sets a session variable in an application context
 		 *
 		 *<code>
-		 *	session->set('auth', 'yes');
+		 *	$session->set('auth', 'yes');
 		 *</code>
 		 *
 		 * @param string index

@@ -144,7 +144,7 @@ namespace Phalcon\Db {
 		 *	print_r($robotsCount);
 		 *
 		 *	//Getting name of last edited robot
-		 *	$robot = $connection->fetchColumn("SELECT id, name FROM robots order by modified desc");
+		 *	$robot = $connection->fetchColumn("SELECT id, name FROM robots order by modified desc", 1);
 		 *	print_r($robot);
 		 *</code>
 		 *
@@ -160,14 +160,14 @@ namespace Phalcon\Db {
 		 * Inserts data into a table using custom RBDM SQL syntax
 		 *
 		 * <code>
-		 * //Inserting a new robot
+		 * // Inserting a new robot
 		 * $success = $connection->insert(
 		 *	 "robots",
 		 *	 array("Astro Boy", 1952),
 		 *	 array("name", "year")
 		 * );
 		 *
-		 * //Next SQL sentence is sent to the database system
+		 * // Next SQL sentence is sent to the database system
 		 * INSERT INTO `robots` (`name`, `year`) VALUES ("Astro boy", 1952);
 		 * </code>
 		 *
@@ -182,11 +182,10 @@ namespace Phalcon\Db {
 
 		/**
 		 * Inserts data into a table using custom RBDM SQL syntax
-		 * Another, more convenient syntax
 		 *
 		 * <code>
 		 * //Inserting a new robot
-		 * $success = $connection->insert(
+		 * $success = $connection->insertAsDict(
 		 *	 "robots",
 		 *	 array(
 		 *		  "name" => "Astro Boy",
@@ -541,6 +540,21 @@ namespace Phalcon\Db {
 		 *</code>
 		 */
 		public function getDefaultIdValue(){ }
+
+
+		/**
+		 * Returns the default value to make the RBDM use the default value declared in the table definition
+		 *
+		 *<code>
+		 * //Inserting a new robot with a valid default value for the column 'year'
+		 * $success = $connection->insert(
+		 *	 "robots",
+		 *	 array("Astro Boy", $connection->getDefaultValue()),
+		 *	 array("name", "year")
+		 * );
+		 *</code>
+		 */
+		public function getDefaultValue(){ }
 
 
 		/**

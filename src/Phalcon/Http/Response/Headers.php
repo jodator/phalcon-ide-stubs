@@ -2,6 +2,12 @@
 
 namespace Phalcon\Http\Response {
 
+	/**
+	 * Phalcon\Http\Response\Headers
+	 *
+	 * This class is a bag to manage the response headers
+	 */
+	
 	class Headers implements \Phalcon\Http\Response\HeadersInterface {
 
 		protected $_headers;
@@ -62,9 +68,6 @@ namespace Phalcon\Http\Response {
 		 * Restore a \Phalcon\Http\Response\Headers object
 		 */
 		public static function __set_state($data){ }
-
-
-		public function __construct(){ }
 
 	}
 }

@@ -218,7 +218,7 @@ namespace Phalcon\Http {
 		 * @param int jsonOptions
 		 * @return \Phalcon\Http\Response
 		 */
-		public function setJsonContent($content, $jsonOptions=null){ }
+		public function setJsonContent($content, $jsonOptions=null, $depth=null){ }
 
 
 		/**

@@ -5,17 +5,17 @@ namespace Phalcon\Mvc {
 	/**
 	 * Phalcon\Mvc\Router
 	 *
-	 * <p>Phalcon\Mvc\Router is the standard framework router. Routing is the
+	 * Phalcon\Mvc\Router is the standard framework router. Routing is the
 	 * process of taking a URI endpoint (that part of the URI which comes after the base URL) and
 	 * decomposing it into parameters to determine which module, controller, and
-	 * action of that controller should receive the request</p>
+	 * action of that controller should receive the request
 	 *
 	 *<code>
 	 *
 	 *	$router = new Router();
 	 *
 	 *	$router->add(
-	 *		"/documentation/{chapter}/{name}.{type:[a-z]+}",
+	 *		"/documentation/{chapter}/{name}\.{type:[a-z]+}",
 	 *		array(
 	 *			"controller" => "documentation",
 	 *			"action"     => "show"
@@ -28,13 +28,19 @@ namespace Phalcon\Mvc {
 	 *</code>
 	 */
 	
-	class Router implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Mvc\RouterInterface {
+	class Router implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Mvc\RouterInterface, \Phalcon\Events\EventsAwareInterface {
 
 		const URI_SOURCE_GET_URL = 0;
 
 		const URI_SOURCE_SERVER_REQUEST_URI = 1;
 
+		const POSITION_FIRST = 0;
+
+		const POSITION_LAST = 1;
+
 		protected $_dependencyInjector;
+
+		protected $_eventsManager;
 
 		protected $_uriSource;
 
@@ -86,6 +92,18 @@ namespace Phalcon\Mvc {
 		 * Returns the internal dependency injector
 		 */
 		public function getDI(){ }
+
+
+		/**
+		 * Sets the events manager
+		 */
+		public function setEventsManager(\Phalcon\Events\ManagerInterface $eventsManager){ }
+
+
+		/**
+		 * Returns the internal event manager
+		 */
+		public function getEventsManager(){ }
 
 
 		/**
@@ -172,52 +190,56 @@ namespace Phalcon\Mvc {
 		 * Adds a route to the router without any HTTP constraint
 		 *
 		 *<code>
+		 * use \Phalcon\Mvc\Router;
+		 *
 		 * $router->add('/about', 'About::index');
+		 * $router->add('/about', 'About::index', ['GET', 'POST']);
+		 * $router->add('/about', 'About::index', ['GET', 'POST'], Router::POSITION_FIRST);
 		 *</code>
 		 */
-		public function add($pattern, $paths=null, $httpMethods=null){ }
+		public function add($pattern, $paths=null, $httpMethods=null, $position=null){ }
 
 
 		/**
 		 * Adds a route to the router that only match if the HTTP method is GET
 		 */
-		public function addGet($pattern, $paths=null){ }
+		public function addGet($pattern, $paths=null, $position=null){ }
 
 
 		/**
 		 * Adds a route to the router that only match if the HTTP method is POST
 		 */
-		public function addPost($pattern, $paths=null){ }
+		public function addPost($pattern, $paths=null, $position=null){ }
 
 
 		/**
 		 * Adds a route to the router that only match if the HTTP method is PUT
 		 */
-		public function addPut($pattern, $paths=null){ }
+		public function addPut($pattern, $paths=null, $position=null){ }
 
 
 		/**
 		 * Adds a route to the router that only match if the HTTP method is PATCH
 		 */
-		public function addPatch($pattern, $paths=null){ }
+		public function addPatch($pattern, $paths=null, $position=null){ }
 
 
 		/**
 		 * Adds a route to the router that only match if the HTTP method is DELETE
 		 */
-		public function addDelete($pattern, $paths=null){ }
+		public function addDelete($pattern, $paths=null, $position=null){ }
 
 
 		/**
 		 * Add a route to the router that only match if the HTTP method is OPTIONS
 		 */
-		public function addOptions($pattern, $paths=null){ }
+		public function addOptions($pattern, $paths=null, $position=null){ }
 
 
 		/**
 		 * Adds a route to the router that only match if the HTTP method is HEAD
 		 */
-		public function addHead($pattern, $paths=null){ }
+		public function addHead($pattern, $paths=null, $position=null){ }
 
 
 		/**

@@ -112,12 +112,6 @@ namespace Phalcon\Mvc {
 		public function skipOperation($skip);
 
 
-		public function readAttribute($attribute);
-
-
-		public function writeAttribute($attribute, $value);
-
-
 		public function getRelated($alias, $arguments=null);
 
 

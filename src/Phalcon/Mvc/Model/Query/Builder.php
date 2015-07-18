@@ -278,11 +278,6 @@ namespace Phalcon\Mvc\Model\Query {
 		 *<code>
 		 *	$builder->betweenWhere('price', 100.25, 200.50);
 		 *</code>
-		 *
-		 * @param string expr
-		 * @param mixed minimum
-		 * @param mixed maximum
-		 * @return \Phalcon\Mvc\Model\Query\Builder
 		 */
 		public function betweenWhere($expr, $minimum, $maximum){ }
 
@@ -293,11 +288,6 @@ namespace Phalcon\Mvc\Model\Query {
 		 *<code>
 		 *	$builder->notBetweenWhere('price', 100.25, 200.50);
 		 *</code>
-		 *
-		 * @param string expr
-		 * @param mixed minimum
-		 * @param mixed maximum
-		 * @return \Phalcon\Mvc\Model\Query\Builder
 		 */
 		public function notBetweenWhere($expr, $minimum, $maximum){ }
 
@@ -360,6 +350,16 @@ namespace Phalcon\Mvc\Model\Query {
 		 *</code>
 		 */
 		public function having($having){ }
+
+
+		/**
+		 * Sets a FOR UPDATE clause
+		 *
+		 *<code>
+		 *	$builder->forUpdate(true);
+		 *</code>
+		 */
+		public function forUpdate($forUpdate){ }
 
 
 		/**

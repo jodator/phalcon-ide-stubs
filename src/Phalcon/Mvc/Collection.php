@@ -9,7 +9,7 @@ namespace Phalcon\Mvc {
 	 * works with documents
 	 */
 	
-	abstract class Collection implements \Phalcon\Mvc\CollectionInterface, \Phalcon\Di\InjectionAwareInterface, \Serializable {
+	abstract class Collection implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\CollectionInterface, \Phalcon\Di\InjectionAwareInterface, \Serializable {
 
 		const OP_NONE = 0;
 
@@ -139,7 +139,7 @@ namespace Phalcon\Mvc {
 		 * Reads an attribute value by its name
 		 *
 		 *<code>
-		 *	echo robot->readAttribute('name');
+		 *	echo $robot->readAttribute('name');
 		 *</code>
 		 *
 		 * @param string attribute
@@ -152,7 +152,7 @@ namespace Phalcon\Mvc {
 		 * Writes an attribute value by its name
 		 *
 		 *<code>
-		 *	robot->writeAttribute('name', 'Rosey');
+		 *	$robot->writeAttribute('name', 'Rosey');
 		 *</code>
 		 *
 		 * @param string attribute
@@ -290,13 +290,13 @@ namespace Phalcon\Mvc {
 		 * Returns all the validation messages
 		 *
 		 * <code>
-		 *robot = new Robots();
-		 *robot->type = 'mechanical';
-		 *robot->name = 'Astro Boy';
-		 *robot->year = 1952;
-		 *if (robot->save() == false) {
+		 * $robot = new Robots();
+		 * $robot->type = 'mechanical';
+		 * $robot->name = 'Astro Boy';
+		 * $robot->year = 1952;
+		 * if ($robot->save() == false) {
 		 *	echo "Umh, We can't store robots right now ";
-		 *	foreach (robot->getMessages() as message) {
+		 *	foreach ($robot->getMessages() as message) {
 		 *		echo message;
 		 *	}
 		 *} else {
@@ -318,9 +318,9 @@ namespace Phalcon\Mvc {
 		 *
 		 *		public function beforeSave()
 		 *		{
-		 *			if (this->name == 'Peter') {
+		 *			if ($this->name == 'Peter') {
 		 *				message = new Message("Sorry, but a robot cannot be named Peter");
-		 *				this->appendMessage(message);
+		 *				$this->appendMessage(message);
 		 *			}
 		 *		}
 		 *	}
@@ -350,22 +350,21 @@ namespace Phalcon\Mvc {
 		 * <code>
 		 *
 		 * //What's the first robot in the robots table?
-		 * robot = Robots::findFirst();
-		 * echo "The robot name is ", robot->name, "\n";
+		 * $robot = Robots::findFirst();
+		 * echo "The robot name is ", $robot->name, "\n";
 		 *
 		 * //What's the first mechanical robot in robots table?
-		 * robot = Robots::findFirst(array(
+		 * $robot = Robots::findFirst(array(
 		 *     array("type" => "mechanical")
 		 * ));
-		 * echo "The first mechanical robot name is ", robot->name, "\n";
+		 * echo "The first mechanical robot name is ", $robot->name, "\n";
 		 *
 		 * //Get first virtual robot ordered by name
-		 * robot = Robots::findFirst(array(
+		 * $robot = Robots::findFirst(array(
 		 *     array("type" => "mechanical"),
 		 *     "order" => array("name" => 1)
 		 * ));
-		 * echo "The first virtual robot name is ", robot->name, "\n";
-		 *
+		 * echo "The first virtual robot name is ", $robot->name, "\n";
 		 * </code>
 		 */
 		public static function findFirst($parameters=null){ }
@@ -377,32 +376,32 @@ namespace Phalcon\Mvc {
 		 * <code>
 		 *
 		 * //How many robots are there?
-		 * robots = Robots::find();
-		 * echo "There are ", count(robots), "\n";
+		 * $robots = Robots::find();
+		 * echo "There are ", count($robots), "\n";
 		 *
 		 * //How many mechanical robots are there?
-		 * robots = Robots::find(array(
+		 * $robots = Robots::find(array(
 		 *     array("type" => "mechanical")
 		 * ));
 		 * echo "There are ", count(robots), "\n";
 		 *
 		 * //Get and print virtual robots ordered by name
-		 * robots = Robots::findFirst(array(
+		 * $robots = Robots::findFirst(array(
 		 *     array("type" => "virtual"),
 		 *     "order" => array("name" => 1)
 		 * ));
-		 * foreach (robots as robot) {
-		 *	   echo robot->name, "\n";
+		 * foreach ($robots as $robot) {
+		 *	   echo $robot->name, "\n";
 		 * }
 		 *
 		 * //Get first 100 virtual robots ordered by name
-		 * robots = Robots::find(array(
+		 * $robots = Robots::find(array(
 		 *     array("type" => "virtual"),
 		 *     "order" => array("name" => 1),
 		 *     "limit" => 100
 		 * ));
-		 * foreach (robots as robot) {
-		 *	   echo robot->name, "\n";
+		 * foreach ($robots as $robot) {
+		 *	   echo $robot->name, "\n";
 		 * }
 		 * </code>
 		 */
@@ -427,11 +426,6 @@ namespace Phalcon\Mvc {
 
 		/**
 		 * Allows to perform a summatory group for a column in the collection
-		 *
-		 * @param string field
-		 * @param array conditions
-		 * @param string finalize
-		 * @return array
 		 */
 		public static function summatory($field, $conditions=null, $finalize=null){ }
 
@@ -440,12 +434,11 @@ namespace Phalcon\Mvc {
 		 * Deletes a model instance. Returning true on success or false otherwise.
 		 *
 		 * <code>
+		 *	$robot = Robots::findFirst();
+		 *	$robot->delete();
 		 *
-		 *	robot = Robots::findFirst();
-		 *	robot->delete();
-		 *
-		 *	foreach (Robots::find() as robot) {
-		 *		robot->delete();
+		 *	foreach (Robots::find() as $robot) {
+		 *		$robot->delete();
 		 *	}
 		 * </code>
 		 */
@@ -453,10 +446,22 @@ namespace Phalcon\Mvc {
 
 
 		/**
+		 * Sets up a behavior in a collection
+		 */
+		protected function addBehavior(\Phalcon\Mvc\Collection\BehaviorInterface $behavior){ }
+
+
+		/**
+		 * Skips the current operation forcing a success state
+		 */
+		public function skipOperation($skip){ }
+
+
+		/**
 		 * Returns the instance as an array representation
 		 *
 		 *<code>
-		 * print_r(robot->to[]);
+		 * print_r($robot->toArray());
 		 *</code>
 		 */
 		public function toArray(){ }
@@ -472,18 +477,6 @@ namespace Phalcon\Mvc {
 		 * Unserializes the object from a serialized string
 		 */
 		public function unserialize($data){ }
-
-
-		/**
-		 * Sets up a behavior in a collection
-		 */
-		protected function addBehavior(\Phalcon\Mvc\Collection\BehaviorInterface $behavior){ }
-
-
-		/**
-		 * Skips the current operation forcing a success state
-		 */
-		public function skipOperation($skip){ }
 
 	}
 }

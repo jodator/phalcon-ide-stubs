@@ -71,6 +71,12 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
+		 * Sets SELECT DISTINCT / SELECT ALL flag
+		 */
+		public function distinct($distinct){ }
+
+
+		/**
 		 * Sets the columns to be queried
 		 *
 		 *<code>
@@ -92,12 +98,6 @@ namespace Phalcon\Mvc\Model {
 		 *	$criteria->join('Robots', 'r.id = RobotsParts.robots_id', 'r');
 		 *	$criteria->join('Robots', 'r.id = RobotsParts.robots_id', 'r', 'LEFT');
 		 *</code>
-		 *
-		 * @param string model
-		 * @param string conditions
-		 * @param string alias
-		 * @param string type
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function join($model, $conditions=null, $alias=null, $type=null){ }
 
@@ -110,11 +110,6 @@ namespace Phalcon\Mvc\Model {
 		 *	$criteria->innerJoin('Robots', 'r.id = RobotsParts.robots_id');
 		 *	$criteria->innerJoin('Robots', 'r.id = RobotsParts.robots_id', 'r');
 		 *</code>
-		 *
-		 * @param string model
-		 * @param string conditions
-		 * @param string alias
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function innerJoin($model, $conditions=null, $alias=null){ }
 
@@ -125,11 +120,6 @@ namespace Phalcon\Mvc\Model {
 		 *<code>
 		 *	$criteria->leftJoin('Robots', 'r.id = RobotsParts.robots_id', 'r');
 		 *</code>
-		 *
-		 * @param string model
-		 * @param string conditions
-		 * @param string alias
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function leftJoin($model, $conditions=null, $alias=null){ }
 
@@ -140,22 +130,12 @@ namespace Phalcon\Mvc\Model {
 		 *<code>
 		 *	$criteria->rightJoin('Robots', 'r.id = RobotsParts.robots_id', 'r');
 		 *</code>
-		 *
-		 * @param string model
-		 * @param string conditions
-		 * @param string alias
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function rightJoin($model, $conditions=null, $alias=null){ }
 
 
 		/**
 		 * Sets the conditions parameter in the criteria
-		 *
-		 * @param string conditions
-		 * @param array bindParams
-		 * @param array bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function where($conditions, $bindParams=null, $bindTypes=null){ }
 
@@ -165,32 +145,18 @@ namespace Phalcon\Mvc\Model {
 		 *
 		 * @deprecated 1.0.0
 		 * @see \Phalcon\Mvc\Model\Criteria::andWhere()
-		 * @param string conditions
-		 * @param array bindParams
-		 * @param array bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function addWhere($conditions, $bindParams=null, $bindTypes=null){ }
 
 
 		/**
 		 * Appends a condition to the current conditions using an AND operator
-		 *
-		 * @param string conditions
-		 * @param array bindParams
-		 * @param array bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function andWhere($conditions, $bindParams=null, $bindTypes=null){ }
 
 
 		/**
 		 * Appends a condition to the current conditions using an OR operator
-		 *
-		 * @param string conditions
-		 * @param array bindParams
-		 * @param array bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function orWhere($conditions, $bindParams=null, $bindTypes=null){ }
 
@@ -201,11 +167,6 @@ namespace Phalcon\Mvc\Model {
 		 *<code>
 		 *	$criteria->betweenWhere('price', 100.25, 200.50);
 		 *</code>
-		 *
-		 * @param string expr
-		 * @param mixed minimum
-		 * @param mixed maximum
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function betweenWhere($expr, $minimum, $maximum){ }
 
@@ -216,11 +177,6 @@ namespace Phalcon\Mvc\Model {
 		 *<code>
 		 *	$criteria->notBetweenWhere('price', 100.25, 200.50);
 		 *</code>
-		 *
-		 * @param string expr
-		 * @param mixed minimum
-		 * @param mixed maximum
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function notBetweenWhere($expr, $minimum, $maximum){ }
 
@@ -261,17 +217,25 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Adds the order-by parameter to the criteria
+		 * Adds the order-by clause to the criteria
 		 */
 		public function orderBy($orderColumns){ }
 
 
 		/**
+		 * Adds the group-by clause to the criteria
+		 */
+		public function groupBy($group){ }
+
+
+		/**
+		 * Adds the having clause to the criteria
+		 */
+		public function having($having){ }
+
+
+		/**
 		 * Adds the limit parameter to the criteria
-		 *
-		 * @param int limit
-		 * @param int offset
-		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function limit($limit, $offset=null){ }
 
@@ -327,9 +291,21 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Returns the order parameter in the criteria
+		 * Returns the order clause in the criteria
 		 */
 		public function getOrder(){ }
+
+
+		/**
+		 * Returns the group clause in the criteria
+		 */
+		public function getGroupBy(){ }
+
+
+		/**
+		 * Returns the having clause in the criteria
+		 */
+		public function getHaving(){ }
 
 
 		/**

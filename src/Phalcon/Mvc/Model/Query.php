@@ -8,7 +8,6 @@ namespace Phalcon\Mvc\Model {
 	 * This class takes a PHQL intermediate representation and executes it.
 	 *
 	 *<code>
-	 *
 	 * $phql = "SELECT c.price*0.16 AS taxes, c.* FROM Cars AS c JOIN Brands AS b
 	 *          WHERE b.name = :name: ORDER BY c.name";
 	 *
@@ -17,11 +16,10 @@ namespace Phalcon\Mvc\Model {
 	 * ));
 	 *
 	 * foreach ($result as $row) {
-	 *   echo "Name: ", $row->cars->name, "\n";
+	 *   echo "Name: ",  $row->cars->name, "\n";
 	 *   echo "Price: ", $row->cars->price, "\n";
 	 *   echo "Taxes: ", $row->taxes, "\n";
 	 * }
-	 *
 	 *</code>
 	 */
 	
@@ -227,18 +225,12 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * Returns a processed group clause for a SELECT statement
-		 *
-		 * @param array $group
-		 * @return array
 		 */
 		final protected function _getGroupClause($group){ }
 
 
 		/**
 		 * Returns a processed limit clause for a SELECT statement
-		 *
-		 * @param array $limit
-		 * @return array
 		 */
 		final protected function _getLimitClause($limitClause){ }
 
@@ -366,7 +358,7 @@ namespace Phalcon\Mvc\Model {
 		/**
 		 * Set default bind parameters
 		 */
-		public function setBindParams($bindParams){ }
+		public function setBindParams($bindParams, $merge=null){ }
 
 
 		/**
@@ -380,7 +372,7 @@ namespace Phalcon\Mvc\Model {
 		/**
 		 * Set default bind parameters
 		 */
-		public function setBindTypes($bindTypes){ }
+		public function setBindTypes($bindTypes, $merge=null){ }
 
 
 		/**

@@ -9,7 +9,7 @@ namespace Phalcon\Mvc\Model {
 	 * This objects implements the ArrayAccess interface to allow access the object as object->x or array[x].
 	 */
 	
-	class Row implements \ArrayAccess, \Phalcon\Mvc\Model\ResultInterface {
+	class Row implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model\ResultInterface, \ArrayAccess {
 
 		/**
 		 * Set the current object's state
@@ -50,6 +50,32 @@ namespace Phalcon\Mvc\Model {
 		 * @param string|int offset
 		 */
 		public function offsetUnset($offset){ }
+
+
+		/**
+		 * Reads an attribute value by its name
+		 *
+		 *<code>
+		 *  echo $robot->readAttribute('name');
+		 *</code>
+		 *
+		 * @param string attribute
+		 * @return mixed
+		 */
+		public function readAttribute($attribute){ }
+
+
+		/**
+		 * Writes an attribute value by its name
+		 *
+		 *<code>
+		 *  $robot->writeAttribute('name', 'Rosey');
+		 *</code>
+		 *
+		 * @param string attribute
+		 * @param mixed value
+		 */
+		public function writeAttribute($attribute, $value){ }
 
 
 		/**

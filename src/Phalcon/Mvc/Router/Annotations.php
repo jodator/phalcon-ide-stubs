@@ -21,11 +21,15 @@ namespace Phalcon\Mvc\Router {
 	 *</code>
 	 */
 	
-	class Annotations extends \Phalcon\Mvc\Router implements \Phalcon\Mvc\RouterInterface, \Phalcon\Di\InjectionAwareInterface {
+	class Annotations extends \Phalcon\Mvc\Router implements \Phalcon\Events\EventsAwareInterface, \Phalcon\Mvc\RouterInterface, \Phalcon\Di\InjectionAwareInterface {
 
 		const URI_SOURCE_GET_URL = 0;
 
 		const URI_SOURCE_SERVER_REQUEST_URI = 1;
+
+		const POSITION_FIRST = 0;
+
+		const POSITION_LAST = 1;
 
 		protected $_handlers;
 

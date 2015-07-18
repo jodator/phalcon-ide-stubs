@@ -67,9 +67,6 @@ namespace Phalcon\Mvc {
 		public function pick($renderView);
 
 
-		public function partial($partialPath);
-
-
 		public function finish();
 
 

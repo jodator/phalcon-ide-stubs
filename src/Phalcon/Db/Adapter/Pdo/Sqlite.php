@@ -13,7 +13,6 @@ namespace Phalcon\Db\Adapter\Pdo {
 	 * );
 	 *
 	 * $connection = new \Phalcon\Db\Adapter\Pdo\Sqlite($config);
-	 *
 	 * </code>
 	 */
 	
@@ -67,6 +66,21 @@ namespace Phalcon\Db\Adapter\Pdo {
 		 * Check whether the database system requires an explicit value for identity columns
 		 */
 		public function useExplicitIdValue(){ }
+
+
+		/**
+		 * Returns the default value to make the RBDM use the default value declared in the table definition
+		 *
+		 *<code>
+		 * //Inserting a new robot with a valid default value for the column 'year'
+		 * $success = $connection->insert(
+		 *	 "robots",
+		 *	 array("Astro Boy", $connection->getDefaultValue()),
+		 *	 array("name", "year")
+		 * );
+		 *</code>
+		 */
+		public function getDefaultValue(){ }
 
 	}
 }

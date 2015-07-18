@@ -23,7 +23,6 @@ namespace Phalcon\Db {
 	 * //add column to existing table
 	 * $connection->addColumn("robots", null, $column);
 	 *</code>
-	 *
 	 */
 	
 	class Column implements \Phalcon\Db\ColumnInterface {
@@ -46,11 +45,29 @@ namespace Phalcon\Db {
 
 		const TYPE_BOOLEAN = 8;
 
+		const TYPE_DOUBLE = 9;
+
+		const TYPE_TINYBLOB = 10;
+
+		const TYPE_BLOB = 11;
+
+		const TYPE_MEDIUMBLOB = 12;
+
+		const TYPE_LONGBLOB = 13;
+
+		const TYPE_BIGINTEGER = 14;
+
+		const TYPE_JSON = 15;
+
+		const TYPE_JSONB = 16;
+
 		const BIND_PARAM_NULL = 0;
 
 		const BIND_PARAM_INT = 1;
 
 		const BIND_PARAM_STR = 2;
+
+		const BIND_PARAM_BLOB = 3;
 
 		const BIND_PARAM_BOOL = 5;
 

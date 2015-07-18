@@ -5,7 +5,7 @@ namespace Phalcon\Mvc {
 	/**
 	 * Phalcon\Mvc\Url
 	 *
-	 * This components aids in the generation of: URIs, URLs and Paths
+	 * This components helps in the generation of: URIs, URLs and Paths
 	 *
 	 *<code>
 	 *
@@ -95,37 +95,32 @@ namespace Phalcon\Mvc {
 		 * Generates a URL
 		 *
 		 *<code>
-		 *
 		 * //Generate a URL appending the URI to the base URI
 		 * echo $url->get('products/edit/1');
 		 *
 		 * //Generate a URL for a predefined route
-		 * echo $url->get(array('for' => 'blog-post', 'title' => 'some-cool-stuff', 'year' => '2012'));
-		 *
+		 * echo $url->get(array('for' => 'blog-post', 'title' => 'some-cool-stuff', 'year' => '2015'));
 		 *</code>
-		 *
-		 * @param string|array uri
-		 * @param array|object args Optional arguments to be appended to the query string
-		 * @param bool $local
-		 * @return string
 		 */
-		public function get($uri=null, $args=null, $local=null){ }
+		public function get($uri=null, $args=null, $local=null, $baseUri=null){ }
 
 
 		/**
 		 * Generates a URL for a static resource
 		 *
-		 * @param string|array uri
-		 * @return string
+		 *<code>
+		 * // Generate a URL for a static resource
+		 * echo $url->getStatic("img/logo.png");
+		 *
+		 * // Generate a URL for a static predefined route
+		 * echo $url->getStatic(array('for' => 'logo-cdn'));
+		 *</code>
 		 */
 		public function getStatic($uri=null){ }
 
 
 		/**
 		 * Generates a local path
-		 *
-		 * @param string path
-		 * @return string
 		 */
 		public function path($path=null){ }
 

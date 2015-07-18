@@ -49,23 +49,12 @@ namespace Phalcon\Assets {
 		 *	$assets->addCss('css/bootstrap.css');
 		 *	$assets->addCss('http://bootstrap.my-cdn.com/style.css', false);
 		 *</code>
-		 *
-		 * @param string path
-		 * @param boolean local
-		 * @param boolean filter
-		 * @param array attributes
-		 * @return \Phalcon\Assets\Manager
 		 */
 		public function addCss($path, $local=null, $filter=null, $attributes=null){ }
 
 
 		/**
 		 * Adds a inline Css to the 'css' collection
-		 *
-		 * @param string content
-		 * @param boolean filter
-		 * @param array attributes
-		 * @return \Phalcon\Assets\Manager
 		 */
 		public function addInlineCss($content, $filter=null, $attributes=null){ }
 
@@ -77,23 +66,12 @@ namespace Phalcon\Assets {
 		 *	$assets->addJs('scripts/jquery.js');
 		 *	$assets->addJs('http://jquery.my-cdn.com/jquery.js', false);
 		 *</code>
-		 *
-		 * @param string path
-		 * @param boolean local
-		 * @param boolean filter
-		 * @param array attributes
-		 * @return \Phalcon\Assets\Manager
 		 */
 		public function addJs($path, $local=null, $filter=null, $attributes=null){ }
 
 
 		/**
 		 * Adds a inline javascript to the 'js' collection
-		 *
-		 * @param string content
-		 * @param boolean filter
-		 * @param array attributes
-		 * @return \Phalcon\Assets\Manager
 		 */
 		public function addInlineJs($content, $filter=null, $attributes=null){ }
 
@@ -217,6 +195,12 @@ namespace Phalcon\Assets {
 		 * @param string collectionName
 		 */
 		public function outputInlineJs($collectionName=null){ }
+
+
+		/**
+		 * Returns existing collections in the manager
+		 */
+		public function getCollections(){ }
 
 	}
 }

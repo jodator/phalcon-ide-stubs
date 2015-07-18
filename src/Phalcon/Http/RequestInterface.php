@@ -67,7 +67,7 @@ namespace Phalcon\Http {
 		public function getUserAgent();
 
 
-		public function isMethod($methods);
+		public function isMethod($methods, $strict=null);
 
 
 		public function isPost();

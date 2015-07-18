@@ -33,7 +33,7 @@ namespace Phalcon\Mvc\Model\Validator {
 		/**
 		 * Executes validator
 		 */
-		public function validate(\Phalcon\Mvc\ModelInterface $record){ }
+		public function validate(\Phalcon\Mvc\EntityInterface $record){ }
 
 	}
 }

@@ -5,17 +5,17 @@ namespace Phalcon\Mvc {
 	/**
 	 * Phalcon\Mvc\Model
 	 *
-	 * <p>Phalcon\Mvc\Model connects business objects and database tables to create
+	 * Phalcon\Mvc\Model connects business objects and database tables to create
 	 * a persistable domain model where logic and data are presented in one wrapping.
-	 * It‘s an implementation of the object-relational mapping (ORM).</p>
+	 * It‘s an implementation of the object-relational mapping (ORM).
 	 *
-	 * <p>A model represents the information (data) of the application and the rules to manipulate that data.
+	 * A model represents the information (data) of the application and the rules to manipulate that data.
 	 * Models are primarily used for managing the rules of interaction with a corresponding database table.
 	 * In most cases, each table in your database will correspond to one model in your application.
-	 * The bulk of your application's business logic will be concentrated in the models.</p>
+	 * The bulk of your application's business logic will be concentrated in the models.
 	 *
-	 * <p>Phalcon\Mvc\Model is the first ORM written in C-language for PHP, giving to developers high performance
-	 * when interacting with databases while is also easy to use.</p>
+	 * Phalcon\Mvc\Model is the first ORM written in C-language for PHP, giving to developers high performance
+	 * when interacting with databases while is also easy to use.
 	 *
 	 * <code>
 	 *
@@ -26,7 +26,7 @@ namespace Phalcon\Mvc {
 	 * if ($robot->save() == false) {
 	 *  echo "Umh, We can store robots: ";
 	 *  foreach ($robot->getMessages() as $message) {
-	 *    echo message;
+	 *	echo message;
 	 *  }
 	 * } else {
 	 *  echo "Great, a new robot was saved successfully!";
@@ -35,7 +35,7 @@ namespace Phalcon\Mvc {
 	 *
 	 */
 	
-	abstract class Model implements \Phalcon\Mvc\ModelInterface, \Phalcon\Mvc\Model\ResultInterface, \Phalcon\Di\InjectionAwareInterface, \Serializable {
+	abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\ModelInterface, \Phalcon\Mvc\Model\ResultInterface, \Phalcon\Di\InjectionAwareInterface, \Serializable {
 
 		const OP_NONE = 0;
 
@@ -137,14 +137,14 @@ namespace Phalcon\Mvc {
 		 *  $robot->name = 'WALL·E';
 		 *  $robot->created_at = date('Y-m-d');
 		 *  if ($robot->save() == false) {
-		 *    $transaction->rollback("Can't save robot");
+		 *	$transaction->rollback("Can't save robot");
 		 *  }
 		 *
 		 *  $robotPart = new RobotParts();
 		 *  $robotPart->setTransaction($transaction);
 		 *  $robotPart->type = 'head';
 		 *  if ($robotPart->save() == false) {
-		 *    $transaction->rollback("Robot part cannot be saved");
+		 *	$transaction->rollback("Robot part cannot be saved");
 		 *  }
 		 *
 		 *  $transaction->commit();
@@ -241,21 +241,20 @@ namespace Phalcon\Mvc {
 		 *
 		 * <code>
 		 * $robot->assign(array(
-		 *    'type' => 'mechanical',
-		 *    'name' => 'Astro Boy',
-		 *    'year' => 1952
+		 *	'type' => 'mechanical',
+		 *	'name' => 'Astro Boy',
+		 *	'year' => 1952
 		 * ));
 		 *
 		 * //assign by db row, column map needed
 		 * $robot->assign($dbRow, array(
-		 *    'db_type' => 'type',
-		 *    'db_name' => 'name',
-		 *    'db_year' => 'year'
+		 *	'db_type' => 'type',
+		 *	'db_name' => 'name',
+		 *	'db_year' => 'year'
 		 * ));
 		 *
 		 * //allow assign only name and year
 		 * $robot->assign($_POST, null, array('name', 'year');
-		 *
 		 *</code>
 		 *
 		 * @param array data
@@ -368,7 +367,7 @@ namespace Phalcon\Mvc {
 		 *
 		 * </code>
 		 *
-		 * @param array parameters
+		 * @param string|array parameters
 		 * @return \Phalcon\Mvc\Model
 		 */
 		public static function findFirst($parameters=null){ }
@@ -537,10 +536,10 @@ namespace Phalcon\Mvc {
 		 *
 		 *   public function beforeSave()
 		 *   {
-		 *     if ($this->name == 'Peter') {
-		 *        $message = new Message("Sorry, but a robot cannot be named Peter");
-		 *        $this->appendMessage($message);
-		 *     }
+		 *	 if ($this->name == 'Peter') {
+		 *		$message = new Message("Sorry, but a robot cannot be named Peter");
+		 *		$this->appendMessage($message);
+		 *	 }
 		 *   }
 		 * }
 		 * </code>
@@ -567,7 +566,6 @@ namespace Phalcon\Mvc {
 		 *			return false;
 		 *		}
 		 *	}
-		 *
 		 *}
 		 *</code>
 		 */
@@ -593,7 +591,6 @@ namespace Phalcon\Mvc {
 		 *			return false;
 		 *		}
 		 *	}
-		 *
 		 *}
 		 *</code>
 		 */
@@ -734,15 +731,11 @@ namespace Phalcon\Mvc {
 		 *  //Passing an array to create
 		 *  $robot = new Robots();
 		 *  $robot->create(array(
-		 *      'type' => 'mechanical',
-		 *      'name' => 'Astroy Boy',
-		 *      'year' => 1952
+		 *	  'type' => 'mechanical',
+		 *	  'name' => 'Astroy Boy',
+		 *	  'year' => 1952
 		 *  ));
 		 *</code>
-		 *
-		 * @param array data
-		 * @param array whiteList
-		 * @return boolean
 		 */
 		public function create($data=null, $whiteList=null){ }
 
@@ -757,10 +750,6 @@ namespace Phalcon\Mvc {
 		 *	$robot->name = "Biomass";
 		 *	$robot->update();
 		 *</code>
-		 *
-		 * @param array data
-		 * @param array whiteList
-		 * @return boolean
 		 */
 		public function update($data=null, $whiteList=null){ }
 
@@ -831,7 +820,7 @@ namespace Phalcon\Mvc {
 		 *
 		 *   public function initialize()
 		 *   {
-		 *       $this->skipAttributes(array('price'));
+		 *	   $this->skipAttributes(array('price'));
 		 *   }
 		 *}
 		 *</code>
@@ -851,7 +840,7 @@ namespace Phalcon\Mvc {
 		 *
 		 *   public function initialize()
 		 *   {
-		 *       $this->skipAttributesOnCreate(array('created_at'));
+		 *	   $this->skipAttributesOnCreate(array('created_at'));
 		 *   }
 		 *}
 		 *</code>
@@ -871,7 +860,7 @@ namespace Phalcon\Mvc {
 		 *
 		 *   public function initialize()
 		 *   {
-		 *       $this->skipAttributesOnUpdate(array('modified_in'));
+		 *	   $this->skipAttributesOnUpdate(array('modified_in'));
 		 *   }
 		 *}
 		 *</code>
@@ -891,7 +880,7 @@ namespace Phalcon\Mvc {
 		 *
 		 *   public function initialize()
 		 *   {
-		 *       $this->allowEmptyStringValues(array('name'));
+		 *	   $this->allowEmptyStringValues(array('name'));
 		 *   }
 		 *}
 		 *</code>
@@ -910,7 +899,7 @@ namespace Phalcon\Mvc {
 		 *
 		 *   public function initialize()
 		 *   {
-		 *       $this->hasOne('id', 'RobotsDescription', 'robots_id');
+		 *	   $this->hasOne('id', 'RobotsDescription', 'robots_id');
 		 *   }
 		 *}
 		 *</code>
@@ -929,7 +918,7 @@ namespace Phalcon\Mvc {
 		 *
 		 *   public function initialize()
 		 *   {
-		 *       $this->belongsTo('robots_id', 'Robots', 'id');
+		 *	   $this->belongsTo('robots_id', 'Robots', 'id');
 		 *   }
 		 *
 		 *}
@@ -949,7 +938,7 @@ namespace Phalcon\Mvc {
 		 *
 		 *   public function initialize()
 		 *   {
-		 *       $this->hasMany('id', 'RobotsParts', 'robots_id');
+		 *	   $this->hasMany('id', 'RobotsParts', 'robots_id');
 		 *   }
 		 *}
 		 *</code>
@@ -968,8 +957,8 @@ namespace Phalcon\Mvc {
 		 *
 		 *   public function initialize()
 		 *   {
-		 *       //Setup a many-to-many relation to Parts through RobotsParts
-		 *       $this->hasManyToMany(
+		 *	   //Setup a many-to-many relation to Parts through RobotsParts
+		 *	   $this->hasManyToMany(
 		 *			'id',
 		 *			'RobotsParts',
 		 *			'robots_id',
@@ -1122,7 +1111,7 @@ namespace Phalcon\Mvc {
 		 * @param	array arguments
 		 * @return	mixed
 		 */
-		public function __call($method, $arguments=null){ }
+		public function __call($method, $arguments){ }
 
 
 		/**

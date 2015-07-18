@@ -20,7 +20,7 @@ namespace Phalcon\Config\Adapter {
 	 *     'dbname' => 'test_db'
 	 * ),
 	 *
-	 * phalcon' => array(
+	 * 'phalcon' => array(
 	 *    'controllersDir' => '../app/controllers/',
 	 *    'modelsDir' => '../app/models/',
 	 *    'viewsDir' => '../app/views/'

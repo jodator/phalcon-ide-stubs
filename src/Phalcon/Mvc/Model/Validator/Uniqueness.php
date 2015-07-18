@@ -9,9 +9,10 @@ namespace Phalcon\Mvc\Model\Validator {
 	 * present more than once in the existing records of the related table
 	 *
 	 *<code>
-	 *use Phalcon\Mvc\Model\Validator\Uniqueness as Uniqueness;
+	 *use Phalcon\Mvc\Model;
+	 *use Phalcon\Mvc\Model\Validator\Uniqueness;
 	 *
-	 *class Subscriptors extends \Phalcon\Mvc\Model
+	 *class Subscriptors extends Model
 	 *{
 	 *
 	 *  public function validation()
@@ -23,7 +24,6 @@ namespace Phalcon\Mvc\Model\Validator {
 	 *          return false;
 	 *      }
 	 *  }
-	 *
 	 *}
 	 *</code>
 	 */
@@ -33,7 +33,7 @@ namespace Phalcon\Mvc\Model\Validator {
 		/**
 		 * Executes the validator
 		 */
-		public function validate(\Phalcon\Mvc\ModelInterface $record){ }
+		public function validate(\Phalcon\Mvc\EntityInterface $record){ }
 
 	}
 }

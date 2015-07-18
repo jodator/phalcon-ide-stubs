@@ -122,9 +122,6 @@ namespace Phalcon\Mvc\View\Engine\Volt {
 
 		/**
 		 * Registers a Volt's extension
-		 *
-		 * @param object extension
-		 * @return \Phalcon\Mvc\View\Engine\Volt\Compiler
 		 */
 		public function addExtension($extension){ }
 
@@ -137,10 +134,6 @@ namespace Phalcon\Mvc\View\Engine\Volt {
 
 		/**
 		 * Register a new function in the compiler
-		 *
-		 * @param string name
-		 * @param Closure|string definition
-		 * @return \Phalcon\Mvc\View\Engine\Volt\Compiler
 		 */
 		public function addFunction($name, $definition){ }
 
@@ -153,10 +146,6 @@ namespace Phalcon\Mvc\View\Engine\Volt {
 
 		/**
 		 * Register a new filter in the compiler
-		 *
-		 * @param string name
-		 * @param Closure|string definition
-		 * @return \Phalcon\Mvc\View\Engine\Volt\Compiler
 		 */
 		public function addFilter($name, $definition){ }
 
@@ -349,10 +338,6 @@ namespace Phalcon\Mvc\View\Engine\Volt {
 		 *	$compiler->compile('views/layouts/main.volt');
 		 *	require $compiler->getCompiledTemplatePath();
 		 *</code>
-		 *
-		 * @param string templatePath
-		 * @param boolean extendsMode
-		 * @return string|array
 		 */
 		public function compile($templatePath, $extendsMode=null){ }
 

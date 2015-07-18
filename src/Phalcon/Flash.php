@@ -21,6 +21,8 @@ namespace Phalcon {
 
 		protected $_automaticHtml;
 
+		protected $_messages;
+
 		/**
 		 * \Phalcon\Flash constructor
 		 */
@@ -95,6 +97,12 @@ namespace Phalcon {
 		 * @param string|array message
 		 */
 		public function outputMessage($type, $message){ }
+
+
+		/**
+		 * Clears accumulated messages when implicit flush is disabled
+		 */
+		public function clear(){ }
 
 	}
 }

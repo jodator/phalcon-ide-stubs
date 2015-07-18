@@ -22,7 +22,6 @@ namespace Phalcon\Mvc {
 	 *	$dispatcher->setParams(array());
 	 *
 	 *	$controller = $dispatcher->dispatch();
-	 *
 	 *</code>
 	 */
 	

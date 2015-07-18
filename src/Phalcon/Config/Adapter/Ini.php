@@ -54,7 +54,7 @@ namespace Phalcon\Config\Adapter {
 		 *          ],
 		 *      ],
 		 * ];
-		 * </code>	 
+		 * </code>
 		 */
 		protected function _parseIniString($path, $value){ }
 

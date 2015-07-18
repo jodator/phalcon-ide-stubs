@@ -11,10 +11,13 @@ namespace Phalcon\Mvc\Model {
 	 * A ModelsManager is injected to a model via a Dependency Injector/Services Container such as Phalcon\DI.
 	 *
 	 * <code>
-	 * $di = new \Phalcon\DI();
+	 * use Phalcon\DI;
+	 * use Phalcon\Mvc\Model\Manager as ModelsManager;
+	 *
+	 * $di = new DI();
 	 *
 	 * $di->set('modelsManager', function() {
-	 *      return new \Phalcon\Mvc\Model\Manager();
+	 *      return new ModelsManager();
 	 * });
 	 *
 	 * $robot = new Robots($di);
@@ -336,6 +339,12 @@ namespace Phalcon\Mvc\Model {
 		 * Returns a relation by its alias
 		 */
 		public function getRelationByAlias($modelName, $alias){ }
+
+
+		/**
+		 * Merge two arrays of find parameters
+		 */
+		final protected function _mergeFindParameters($findParamsOne, $findParamsTwo){ }
 
 
 		/**

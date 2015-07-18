@@ -28,7 +28,7 @@ namespace Phalcon\Validation\Validator {
 		/**
 		 * Compare strings
 		 */
-		protected function compare($a, $b){ }
+		final protected function compare($a, $b){ }
 
 	}
 }

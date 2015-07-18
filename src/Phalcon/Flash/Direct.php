@@ -12,10 +12,14 @@ namespace Phalcon\Flash {
 
 		/**
 		 * Outputs a message
-		 *
-		 * @param  string|array message
 		 */
 		public function message($type, $message){ }
+
+
+		/**
+		 * Prints the messages accumulated in the flasher
+		 */
+		public function output($remove=null){ }
 
 	}
 }

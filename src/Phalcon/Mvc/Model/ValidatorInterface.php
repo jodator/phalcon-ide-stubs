@@ -7,7 +7,7 @@ namespace Phalcon\Mvc\Model {
 		public function getMessages();
 
 
-		public function validate(\Phalcon\Mvc\ModelInterface $record);
+		public function validate(\Phalcon\Mvc\EntityInterface $record);
 
 	}
 }

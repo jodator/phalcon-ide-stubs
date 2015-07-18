@@ -2,6 +2,12 @@
 
 namespace Phalcon\Mvc\Model {
 
+	/**
+	 * Phalcon\Mvc\Model\Validator
+	 *
+	 * This is a base class for Phalcon\Mvc\Model validators
+	 */
+	
 	abstract class Validator {
 
 		protected $_options;
@@ -35,22 +41,19 @@ namespace Phalcon\Mvc\Model {
 		 *
 		 * @return array
 		 */
-		protected function getOptions(){ }
+		public function getOptions(){ }
 
 
 		/**
 		 * Returns an option
-		 *
-		 * @param	string option
-		 * @return	mixed
 		 */
-		protected function getOption($option){ }
+		public function getOption($option, $defaultValue=null){ }
 
 
 		/**
 		 * Check whether a option has been defined in the validator options
 		 */
-		protected function isSetOption($option){ }
+		public function isSetOption($option){ }
 
 	}
 }

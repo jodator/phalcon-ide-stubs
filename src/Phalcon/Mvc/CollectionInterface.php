@@ -22,12 +22,6 @@ namespace Phalcon\Mvc {
 		public function getConnection();
 
 
-		public function readAttribute($attribute);
-
-
-		public function writeAttribute($attribute, $value);
-
-
 		public static function cloneResult(\Phalcon\Mvc\CollectionInterface $collection, $document);
 
 

@@ -131,5 +131,17 @@ namespace Phalcon {
 		 */
 		public static function concat(){ }
 
+
+		/**
+		 * Generates random text in accordance with the template
+		 *
+		 * <code>
+		 *    echo \Phalcon\Text::dynamic("{Hi|Hello}, my name is a {Bob|Mark|Jon}!"); // Hi my name is a Bob
+		 *    echo \Phalcon\Text::dynamic("{Hi|Hello}, my name is a {Bob|Mark|Jon}!"); // Hi my name is a Jon
+		 *    echo \Phalcon\Text::dynamic("{Hi|Hello}, my name is a {Bob|Mark|Jon}!"); // Hello my name is a Bob
+		 * </code>
+		 */
+		public static function dynamic($text, $leftDelimiter=null, $rightDelimiter=null, $separator=null){ }
+
 	}
 }
