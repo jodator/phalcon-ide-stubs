@@ -33,7 +33,7 @@ namespace Phalcon {
 
 
 		/**
-		 * Sets if files the exception"s backtrace must be showed
+		 * Sets if files the exception's backtrace must be showed
 		 */
 		public function setShowBackTrace($showBackTrace){ }
 

@@ -456,7 +456,7 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Returns the lastest query created or executed in the models manager
+		 * Returns the last query created or executed in the models manager
 		 */
 		public function getLastQuery(){ }
 

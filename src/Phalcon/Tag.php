@@ -668,7 +668,7 @@ namespace Phalcon {
 		 * @param string separator
 		 * @param boolean lowercase
 		 * @param mixed replace
-		 * @return text
+		 * @return string
 		 */
 		public static function friendlyTitle($text, $separator=null, $lowercase=null, $replace=null){ }
 

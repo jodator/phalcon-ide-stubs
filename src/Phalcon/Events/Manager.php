@@ -97,7 +97,7 @@ namespace Phalcon\Events {
 
 
 		/**
-		 * Fires an event in the events manager causing that active listeners be notified about it
+		 * Fires an event in the events manager causing the active listeners to be notified about it
 		 *
 		 *<code>
 		 *	$eventsManager->fire('db', $connection);

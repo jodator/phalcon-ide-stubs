@@ -96,12 +96,6 @@ namespace Phalcon\Db {
 		 *	$robot = $connection->fecthOne("SELECT * FROM robots", \Phalcon\Db::FETCH_ASSOC);
 		 *	print_r($robot);
 		 *</code>
-		 *
-		 * @param string sqlQuery
-		 * @param int fetchMode
-		 * @param array bindParams
-		 * @param array bindTypes
-		 * @return array
 		 */
 		public function fetchOne($sqlQuery, $fetchMode=null, $bindParams=null, $bindTypes=null){ }
 
@@ -319,9 +313,9 @@ namespace Phalcon\Db {
 		/**
 		 * Generates SQL checking for the existence of a schema.table
 		 *
-		 * <code>
+		 *<code>
 		 * 	var_dump($connection->tableExists("blog", "posts"));
-		 * </code>
+		 *</code>
 		 */
 		public function tableExists($tableName, $schemaName=null){ }
 
@@ -361,12 +355,7 @@ namespace Phalcon\Db {
 
 
 		/**
-		 * Creates a view
-		 *
-		 * @param	string tableName
-		 * @param	array definition
-		 * @param	string schemaName
-		 * @return	boolean
+		 * Creates a view	 
 		 */
 		public function createView($viewName, $definition, $schemaName=null){ }
 

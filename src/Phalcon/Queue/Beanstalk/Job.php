@@ -3,10 +3,10 @@
 namespace Phalcon\Queue\Beanstalk {
 
 	/**
-	* Phalcon\Queue\Beanstalk\Job
-	*
-	* Represents a job in a beanstalk queue
-	*/
+	 * Phalcon\Queue\Beanstalk\Job
+	 *
+	 * Represents a job in a beanstalk queue
+	 */
 	
 	class Job {
 
@@ -24,12 +24,8 @@ namespace Phalcon\Queue\Beanstalk {
 
 		/**
 		 * \Phalcon\Queue\Beanstalk\Job
-		 *
-		 * @param \Phalcon\Queue\Beanstalk queue
-		 * @param string id
-		 * @param string body
 		 */
-		public function __construct($queue, $id, $body){ }
+		public function __construct(\Phalcon\Queue\Beanstalk $queue, $id, $body){ }
 
 
 		/**

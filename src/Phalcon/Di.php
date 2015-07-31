@@ -78,6 +78,7 @@ namespace Phalcon {
 
 		/**
 		 * Removes a service in the services container
+		 * It also removes any shared instance created for the service
 		 */
 		public function remove($name){ }
 

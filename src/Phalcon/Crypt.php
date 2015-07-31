@@ -44,9 +44,9 @@ namespace Phalcon {
 		protected $_cipher;
 
 		/**
-		 * @brief \Phalcon\CryptInterface \Phalcon\Crypt::setPadding(int $scheme)
+		 * Changes the padding scheme used
 		 *
-		 * @param int scheme Padding scheme
+		 * @param int scheme
 		 */
 		public function setPadding($scheme){ }
 
@@ -88,13 +88,8 @@ namespace Phalcon {
 
 
 		/**
-		 * Adds padding @a padding_type to @a text
+		 * Pads texts before encryption
 		 *
-		 * @param return_value Result, possibly padded
-		 * @param text Message to be padded
-		 * @param mode Encryption mode; padding is applied only in CBC or ECB mode
-		 * @param block_size Cipher block size
-		 * @param padding_type Padding scheme
 		 * @see http://www.di-mgt.com.au/cryptopad.html
 		 */
 		protected function _cryptPadText($text, $mode, $blockSize, $paddingType){ }

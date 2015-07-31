@@ -142,6 +142,16 @@ namespace Phalcon\Http {
 
 
 		/**
+		 * Sets Cache headers to use HTTP cache
+		 *
+		 *<code>
+		 *	$this->response->setCache(60);
+		 *</code>
+		 */
+		public function setCache($minutes){ }
+
+
+		/**
 		 * Sends a Not-Modified response
 		 */
 		public function setNotModified(){ }

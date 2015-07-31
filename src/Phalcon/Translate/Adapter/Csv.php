@@ -19,6 +19,17 @@ namespace Phalcon\Translate\Adapter {
 
 
 		/**
+		 * Load translates from file
+		 *
+		 * @param string file
+		 * @param int length
+		 * @param string delimiter
+		 * @param string enclosure
+		 */
+		private function _load($file, $length, $delimiter, $enclosure){ }
+
+
+		/**
 		 * Returns the translation related to the given key
 		 */
 		public function query($index, $placeholders=null){ }

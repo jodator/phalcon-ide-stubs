@@ -44,12 +44,21 @@ namespace Phalcon\Http\Request {
 
 		protected $_extension;
 
+		/**
+		 * @var string|null
+		 */
 		public function getError(){ }
 
 
+		/**
+		 * @var string|null
+		 */
 		public function getKey(){ }
 
 
+		/**
+		 * @var string
+		 */
 		public function getExtension(){ }
 
 

@@ -8,7 +8,7 @@ namespace Phalcon\Paginator\Adapter {
 	 * Pagination using a PHP array as source of data
 	 *
 	 *<code>
-	 *	$paginator = new \Phalcon\Paginator\Adapter\Model(
+	 *	$paginator = new \Phalcon\Paginator\Adapter\NativeArray(
 	 *		array(
 	 *			"data"  => array(
 	 *				array('id' => 1, 'name' => 'Artichoke'),

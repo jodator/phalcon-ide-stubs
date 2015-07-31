@@ -175,5 +175,11 @@ namespace Phalcon\Db\Dialect {
 		 */
 		public function supportsReleaseSavepoints(){ }
 
+
+		/**
+		 * Prepares table for this RDBMS
+		 */
+		protected function prepareTable($table, $schema=null, $alias=null, $escapeChar=null){ }
+
 	}
 }

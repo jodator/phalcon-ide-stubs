@@ -103,11 +103,7 @@ namespace Phalcon\Logger {
 
 
 		/**
-		 * Logs messages to the internal logger. Appends logs to the logger
-		 * @param mixed type
-		 * @param mixed message
-		 * @param mixed context
-		 * @return \Phalcon\Logger\AdapterInterface
+		 * Logs messages to the internal logger. Appends logs to the logger	 
 		 */
 		public function log($type, $message=null, $context=null){ }
 

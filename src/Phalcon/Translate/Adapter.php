@@ -10,6 +10,14 @@ namespace Phalcon\Translate {
 	
 	abstract class Adapter {
 
+		protected $_interpolator;
+
+		public function __construct($options){ }
+
+
+		public function setInterpolator(\Phalcon\Translate\InterpolatorInterface $interpolator){ }
+
+
 		/**
 		 * Returns the translation string of the given key
 		 *
@@ -63,7 +71,7 @@ namespace Phalcon\Translate {
 
 
 		/**
-		 * Replaces placeholders by the values passed	
+		 * Replaces placeholders by the values passed
 		 */
 		protected function replacePlaceholders($translation, $placeholders=null){ }
 
